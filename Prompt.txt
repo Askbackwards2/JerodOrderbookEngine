@@ -1,0 +1,35 @@
+
+Core Features to Implement:
+
+    Order Representation:
+        Define Order and Limit classes/structs to store order details (ID, instrument, price, quantity, type, timestamp) and price level information. 
+    Order Book Data Structure:
+        Choose and implement an appropriate data structure for storing buy and sell orders. Common choices include:
+            Sorted maps/trees: For efficient price-level access (e.g., std::map<Price, std::list<Order>> or a custom balanced binary search tree like Red-Black Tree or AVL Tree).
+            Doubly linked lists: To maintain time priority for orders at the same price level. 
+    Order Book Operations:
+        Add Order:
+            Handle Limit Orders: Add to the appropriate price level and maintain time priority.
+            Handle Market Orders: Immediately match against existing limit orders.
+            Optionally, implement other order types like Good-Till-Canceled (GTC), Fill-or-Kill (FOK), Immediate-or-Cancel (IOC). 
+        Cancel Order: Remove an order from the book by its ID.
+        Execute Order/Matching Engine:
+            Implement the matching logic based on price-time priority (highest bid first, lowest ask first, then oldest order at that price).
+            Generate Trade events upon successful matches (e.g., traded quantity, price). 
+        Modify Order (Optional): Allow changing quantity or price of existing orders. 
+    Market Data Output:
+        Provide functionality to retrieve and display:
+            Best Bid and Ask (Level 1 data).
+            Full Order Book Depth (Level 2 data): All price levels and their aggregated quantities.
+            Trade History: A log of executed trades.
+
+Technical Considerations:
+
+    Performance:
+    Optimize data structures and algorithms for low-latency operations, especially for add, cancel, and matching.
+    Concurrency (Optional):
+    If aiming for a multi-threaded system, consider thread-safe data structures and locking mechanisms.
+    Error Handling:
+    Implement robust error handling for invalid order inputs or operations.
+    Testing:
+    Write unit tests to verify the correctness of order book operations and matching logic.

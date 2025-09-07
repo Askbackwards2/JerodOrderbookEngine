@@ -1,0 +1,37 @@
+# Build directories
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/Makefile
+/*.cmake
+/*.o
+/*.obj
+/*.so
+/*.a
+/*.exe
+/*.out
+
+# VS Code settings
+.vscode/
+
+# Compiled binaries
+/LimitOrderBook
+/OrderBookTests
+
+# Test output
+/test/*.out
+/test/*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*~
+*.swp
+*.bak
+
+# Generated files
+compile_commands.json
+
+# Ignore by extension
